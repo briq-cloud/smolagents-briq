@@ -14,6 +14,7 @@ dependencies = ["briq-cloud>=0.1.1,<0.2", "smolagents>=1.26.0,<1.27"]
 
 [project.urls]
 Homepage = "https://briq.cloud"
+Repository = "https://github.com/briq-cloud/smolagents-briq"
 
 [dependency-groups]
 test = ["numpy>=1.26,<3", "pytest>=8", "ipykernel>=6,<8", "jupyter-client>=8,<9", "ruff>=0.6", "build>=1", "twine>=6"]

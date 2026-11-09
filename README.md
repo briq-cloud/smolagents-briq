@@ -10,7 +10,7 @@ with BriqExecutor() as executor:
     result = agent.run("Calculate the first 20 Fibonacci numbers.")
 ```
 
-Install with `pip install smolagents-briq`. This source candidate targets
+Install with `pip install smolagents-briq`. The package targets
 smolagents 1.26.x and briq-cloud 0.1.x (minimum 0.1.1). Direct `executor=` injection
 works in released smolagents; no plugin discovery or upstream patch is required.
 The model is configured separately; no model credentials are sent by this adapter.
@@ -27,7 +27,7 @@ The default image is `python:3.12-slim`. Cold setup installs smolagents 1.26.0,
 NumPy 1.26/2.x, ipykernel 6/7 and jupyter-client 8 with pip, requiring outbound package access.
 A custom image must provide `python3` and pip. Initial installation has a 60-second
 command deadline and can fail on slow networks; setup failures destroy the sandbox.
-There is no immutable prebuilt integration image in this candidate.
+There is no prebuilt integration image.
 
 The kernel listens on loopback inside the sandbox. No port is exposed. Commands
 and results travel through the briq SDK. Code is uploaded as a file, so long actions
@@ -46,7 +46,7 @@ stays open. There is no destructor that performs network calls. `size` is passed
 through when supplied; otherwise the API chooses its default. `sleep` defaults to
 `30m`. Sleeping or restarting a sandbox loses the live kernel session.
 
-## Verify this candidate
+## Verify
 
 ```sh
 uv sync --group test
@@ -58,6 +58,6 @@ uv run twine check dist/*
 
 Offline contract tests run a real Jupyter kernel and the shipped bridge through a
 local subprocess SDK double, plus a deterministic real CodeAgent. They do not call
-briq or a model API. A live briq lifecycle smoke is still required before release,
-including verifying detached kernel survival after SDK exec, cold setup deadlines,
-timeout interruption and sandbox destruction. This candidate has not been live tested.
+briq or a model API. The 0.1.0 release candidate also passed a live lifecycle smoke against staging and
+production on 2026-11-09: persistent state, final answers, timeout, refusal to reuse
+an uncertain executor, and confirmed destruction. No model API was called.

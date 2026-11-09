@@ -1,0 +1,24 @@
+name: publish
+on:
+  push:
+    tags: ['v*']
+permissions: { contents: read, id-token: write }
+jobs:
+  publish:
+    runs-on: ubicloud-standard-2-ubuntu-2604
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          python-version: '3.11'
+      - run: uv sync --locked --group test
+      - name: Verify tag and package version
+        run: |
+          uv run python -c 'import os, smolagents_briq; assert os.environ["GITHUB_REF_NAME"] == "v" + smolagents_briq.__version__'
+      - run: uv run ruff check . && uv run ruff format --check .
+      - run: uv run pytest
+      - run: uv build --out-dir "$RUNNER_TEMP/dist"
+      - run: uv run twine check "$RUNNER_TEMP"/dist/*
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: ${{ runner.temp }}/dist

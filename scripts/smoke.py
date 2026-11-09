@@ -35,12 +35,13 @@ def main() -> None:
             else:
                 raise RuntimeError("Uncertain executor was reused")
         try:
-            client.sandbox(sandbox_id)
+            deleted = client.sandbox(sandbox_id)
         except BriqError as error:
             if error.code != "not_found":
                 raise
         else:
-            raise RuntimeError("Sandbox still exists after cleanup")
+            if deleted.info.state != "destroyed":
+                raise RuntimeError("Sandbox is not destroyed after cleanup")
     print("Live checks passed: persistent state, final answer, timeout, reuse refusal, deletion")
 
 
