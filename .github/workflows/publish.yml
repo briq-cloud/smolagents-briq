@@ -5,7 +5,7 @@ on:
 permissions: { contents: read, id-token: write }
 jobs:
   publish:
-    runs-on: ubicloud-standard-2-ubuntu-2604
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v10.3.3
