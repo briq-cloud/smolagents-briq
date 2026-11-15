@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "smolagents-briq"
-version = "0.1.0"
+version = "0.2.0"
 description = "Persistent briq sandbox executor for smolagents"
 readme = "README.md"
 requires-python = ">=3.11,<4"
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = ["briq-cloud>=0.1.1,<0.2", "smolagents>=1.26.0,<1.27"]
+dependencies = ["briq-cloud>=0.2,<0.3", "smolagents>=1.26.0,<1.27"]
 
 [project.urls]
 Homepage = "https://briq.cloud"
