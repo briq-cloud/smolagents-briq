@@ -49,14 +49,14 @@ wheels = [
 
 [[package]]
 name = "briq-cloud"
-version = "0.1.1"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/86/ae/8cbde4b5744c0cc5aec3731f50fd65d20c4bcada1bae38c0f1f2b55c6696/briq_cloud-0.1.1.tar.gz", hash = "sha256:71e8e71ac62faa70c499888701b58f64178f0c278fdc44d0a26bdb9a2bdeae96", size = 21368, upload-time = "2026-11-06T07:32:36.186Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/cb/d5/63456129d68c83414c2d25c99b64899fe7282e32d2552364ff10b3b95adb/briq_cloud-0.2.0.tar.gz", hash = "sha256:2809e0591eb5663f1e4e806aa18a5eed5680bbfa0655fd06f850c47fe2623311", size = 24981, upload-time = "2026-11-15T20:23:46.825Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/86/83/73ad87281ae33588bf70cd6aa475dd55fbab05e302d887d5d30888c535b9/briq_cloud-0.1.1-py3-none-any.whl", hash = "sha256:5c5682c538da5effbe39a00b55e36a0618ade5a0132c15c822c2420dd8a1e670", size = 25714, upload-time = "2026-11-06T07:32:35.04Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/4a/e6dbd112e579cdd67de4b49f3408a276c5ea4530d799bdb3d071a415b862/briq_cloud-0.2.0-py3-none-any.whl", hash = "sha256:956c705c4dfba9bf75a5152a0aac8ac99f386c1ed6171ed3b8124a3cb6089af4", size = 29927, upload-time = "2026-11-15T20:23:45.577Z" },
 ]
 
 [[package]]
@@ -1692,7 +1692,7 @@ wheels = [
 
 [[package]]
 name = "smolagents-briq"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "briq-cloud" },
@@ -1713,7 +1713,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "briq-cloud", specifier = ">=0.1.1,<0.2" },
+    { name = "briq-cloud", specifier = ">=0.2,<0.3" },
     { name = "smolagents", specifier = ">=1.26.0,<1.27" },
 ]
 
